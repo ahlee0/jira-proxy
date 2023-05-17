@@ -7,7 +7,7 @@ const port = process.env.PORT || 3001;
 app.get("/", (req, res) => res.type('html').send("Welcome to the JIRA proxy server!"));
 
 const jiraProxy = createProxyMiddleware('/jira', {
-  target: 'https://jira.tools.tax.service.gov.uk',
+  target: 'https://jira.tools.tax.service.gov.uk/',
   pathRewrite: { '^/jira': '/rest/api/2/filter' },
   changeOrigin: true,
   secure: false,
