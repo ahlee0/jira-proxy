@@ -22,6 +22,10 @@ const jiraProxy = createProxyMiddleware('/jira', {
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     res.setHeader('Access-Control-Allow-Credentials', 'true');
   },
+  onError(err, req, res) {
+    console.error('Proxy error:', err);
+    res.status(500).json({ error: 'Proxy error: ' + err.message });
+  },
 });
 
 app.use(jiraProxy);
