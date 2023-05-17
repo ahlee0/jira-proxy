@@ -15,6 +15,7 @@ const jiraProxy = createProxyMiddleware('/jira', {
     // Add any required headers here, such as an API key or authentication
     proxyReq.setHeader('Authorization', req.headers.authorization);
   },
+  logLevel: 'debug',
   onProxyRes(proxyRes, req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
