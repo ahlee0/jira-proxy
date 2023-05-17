@@ -10,6 +10,7 @@ const jiraProxy = createProxyMiddleware('/jira', {
   target: 'https://jira.tools.tax.service.gov.uk',
   pathRewrite: { '^/jira': '/rest/api/2/filter' },
   changeOrigin: true,
+  secure: false,
   onProxyReq(proxyReq, req, res) {
     // Add any required headers here, such as an API key or authentication
     proxyReq.setHeader('Authorization', req.headers.authorization);
