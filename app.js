@@ -13,6 +13,9 @@ const jiraProxy = createProxyMiddleware('/jira', {
   secure: false,
   timeout: 60000, // 60 seconds
   proxyTimeout: 60000, // 60 seconds
+  headers: {
+    "Connection": "keep-alive"
+  },
   onProxyReq(proxyReq, req, res) {
     // Add any required headers here, such as an API key or authentication
     proxyReq.setHeader('Authorization', req.headers.authorization);
