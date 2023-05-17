@@ -11,6 +11,8 @@ const jiraProxy = createProxyMiddleware('/jira', {
   pathRewrite: { '^/jira': '/rest/api/2/filter' },
   changeOrigin: true,
   secure: false,
+  timeout: 60000, // 60 seconds
+  proxyTimeout: 60000, // 60 seconds
   onProxyReq(proxyReq, req, res) {
     // Add any required headers here, such as an API key or authentication
     proxyReq.setHeader('Authorization', req.headers.authorization);
