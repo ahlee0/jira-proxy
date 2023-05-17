@@ -18,6 +18,7 @@ const jiraProxy = createProxyMiddleware('/jira', {
   },
   onProxyReq(proxyReq, req, res) {
     // Add any required headers here, such as an API key or authentication
+    proxyReq.setHeader('Connection', "keep-alive");
     proxyReq.setHeader('Authorization', req.headers.authorization);
   },
   logLevel: 'debug',
